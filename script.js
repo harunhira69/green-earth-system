@@ -4,8 +4,10 @@ const cartContainer = document.getElementById('cartContainer');
 const cartFather = document.getElementById('cartFather');
 const modelContainer = document.getElementById('modal_container');
 const cardDetails = document.getElementById('card_details_modal');
+const loadingDiv = document.getElementById('loading')
 let cart = [];
 let allPlants =[]
+
 
 cartFather.addEventListener('click',(e)=>{
     if(e.target.innerText=='Add to Cart'){
@@ -87,15 +89,17 @@ const url = ('https://openapi.programming-hero.com/api/plants')
 fetch(url)
 .then(res=>res.json())
 .then(data=>{
-    displayTree(data.plants)
+    allPlants=data.plants;
+    displayTree(allPlants)
 
 })
 
 const displayTree=(treeArray)=>{
     categoryContainer.innerHTML="";
+  
 treeArray.forEach(tr=>{
     console.log(tr)
-    categoryContainer.innerHTML+=`        
+    categoryContainer.innerHTML+=`         
                
 <div id="${tr.id}" class="border-2 border-gray-500 rounded-xl p-3  shadow-sm ">
                <img class="rounded-lg  w-full h-40 object-cover" src="${tr.image}" alt="">
@@ -166,6 +170,7 @@ const buttonLeft = async()=>{
 }
 const displayButton=(button)=>{
     leftContainer.innerHTML="";
+    leftContainer.innerHTML=`<button class="btn btn-soft btn-primary w-full ">All</button>`;
     button.forEach(bt=>{
         console.log(bt)
         
@@ -175,6 +180,7 @@ const displayButton=(button)=>{
 
     });
     leftContainer.addEventListener('click',(e)=>{
+        const categoryButton = e.target.innerText
         const allButton =leftContainer.querySelectorAll('button');
         allButton.forEach(allbtn=>{
             allbtn.classList.remove('btn-secondary')
@@ -185,6 +191,12 @@ const displayButton=(button)=>{
             
 
         }
+      if(categoryButton === 'All'){
+    displayTree(allPlants);
+} else {
+    const filterData = allPlants.filter(pl => pl.category === categoryButton);
+    displayTree(filterData);   
+}
       
    
 })

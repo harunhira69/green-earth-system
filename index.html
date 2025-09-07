@@ -49,7 +49,7 @@
     <main class="bg-[#dcfce7]">
         <section class="bg-[#cff0dc] md:flex md:flex-1 items-center">
             <div>
-                <img src="./assets/hero-leaf1.png" alt="">
+                <img class="hidden md:block" src="./assets/hero-leaf1.png" alt="">
             </div>
             <div class="flex flex-col items-center text-center">
                 <h1 class="text-3xl tetx-black font-bold">Plant a Tree, Grow a Future</h1>
@@ -62,18 +62,23 @@
 
             </div>
             <div>
-                <img src="./assets/hero-leaf2.png" alt="">
+                <img class="hidden md:block" src="./assets/hero-leaf2.png" alt="">
             </div>
         </section>
         <!-- card section -->
-        <section id="cartFather" class="grid grid-cols-5 gap-10">
-            <div id="left-button" class="left col-span-1 h-screen sticky overflow-y-auto top-0 bg-gray-500  ">
-                <button class="btn btn-soft btn-primary ">Primary</button>
+        <section id="cartFather" class="grid md:grid-cols-5 grid-cols-1 gap-10">
+            <div id="left-button" class="left flex flex-col md:col-span-1 md:h-screen md:sticky md:overflow-y-auto md:top-0 bg-gray-500 space-y-2 p-2 ">
+               
             </div>
-            <div id="category-container" class=" col-span-3 grid grid-cols-3 gap-6"></div>
-            <div id="right-div" class="right col-span-1 bg-white">
+           
+            <div id="category-container" class=" col-span-1 md:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-6 md:order-none order-2">
+               
+               
+            </div>
+             
+            <div id="right-div" class="right col-span-1 bg-white ">
                 <h2 class="font-bold">Your Cart</h2>
-                <div id="cartContainer" class="border-2 border-green-500">
+                <div id="cartContainer" class=" ">
 
                 </div>
             </div>
