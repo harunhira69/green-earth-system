@@ -3,6 +3,7 @@ const leftContainer = document.getElementById('left-button');
 const cartContainer = document.getElementById('cartContainer');
 const cartFather = document.getElementById('cartFather');
 let cart = [];
+let allPlants =[]
 
 cartFather.addEventListener('click',(e)=>{
     if(e.target.innerText=='Add to Cart'){
@@ -13,6 +14,11 @@ cartFather.addEventListener('click',(e)=>{
    
  
 })
+
+
+const handleLeftButton = ()=>{
+
+}
 const handleCart=(e)=>{
        
         const title=e.target.parentNode.children[1].innerText;
@@ -124,17 +130,31 @@ const buttonLeft = async()=>{
 const displayButton=(button)=>{
     leftContainer.innerHTML="";
     button.forEach(bt=>{
+        console.log(bt)
+        
         leftContainer.innerHTML+=`
-          <button class=" category-btn btn btn-soft btn-primary w-full">${bt.category_name}</button>
+          <button class="category-btn btn btn-soft btn-primary w-full">${bt.category_name}</button>
           `
-    })
+
+    });
+    leftContainer.addEventListener('click',(e)=>{
+        const allButton =leftContainer.querySelectorAll('button');
+        allButton.forEach(allbtn=>{
+            allbtn.classList.remove('btn-secondary')
+        })
+        
+        if(e.target.tagName==='BUTTON'){
+            e.target.classList.add('btn-secondary')
+            
+
+        }
+      
+   
+})
+
 
 }
-const leftConatinerDelegation = ()=>{
-    leftContainer.addEventListener('click'(e=>{
-        console.log(e)
-    }))
-}
+
 const rightDIv=()=>{
  document.querySelectorAll('.cart-button').addEventListener('click',(e)=>{
    const btn = e.target.closest('.category-btn');
