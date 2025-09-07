@@ -65,7 +65,21 @@
                 <img src="./assets/hero-leaf2.png" alt="">
             </div>
         </section>
-        <section class="md:flex items-center gap-8 md:w-6/12 mx-auto mt-10">
+        <!-- card section -->
+        <section id="cartFather" class="grid grid-cols-5 gap-10">
+            <div id="left-button" class="left col-span-1 h-screen sticky overflow-y-auto top-0 bg-gray-500  ">
+                <button class="btn btn-soft btn-primary ">Primary</button>
+            </div>
+            <div id="category-container" class=" col-span-3 grid grid-cols-3 gap-6"></div>
+            <div id="right-div" class="right col-span-1 bg-white">
+                <h2 class="font-bold">Your Cart</h2>
+                <div id="cartContainer" class="border-2 border-green-500">
+
+                </div>
+            </div>
+        
+        </section>
+        <!-- <section class="md:flex items-center gap-8 md:w-6/12 mx-auto mt-10">
             <div class="right rounded-lg">
                 <img class="w-[150px] md:max-w-[500px]" src="./assets/about.png" alt="">
             </div>
@@ -76,10 +90,11 @@
                 <li>Improvement of air quality</li>
                 <li>Support for local communities</li>
             </div>
-        </section>
+        </section> -->
       
     </main>
-      <div class="bg-[#cff0dc] flex justify-center gap-20 mt-10 overflow-hidden">
+      <!-- <div class="bg-[#cff0dc] flex justify-center gap-20 mt-10 overflow-hidden">
+        
         
             <div class="rounded-lg bg-white p-5">
                 <h1 class="text-[#15803D] text-3xl">500K+</h1>
@@ -95,7 +110,10 @@
 
             </div>
            
-        </div>
-</body>
+        </div> -->
+
+<script src="script.js"></script>
+    </body>
+
 
 </html>
