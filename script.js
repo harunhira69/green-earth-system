@@ -2,6 +2,8 @@ const categoryContainer = document.getElementById('category-container')
 const leftContainer = document.getElementById('left-button');
 const cartContainer = document.getElementById('cartContainer');
 const cartFather = document.getElementById('cartFather');
+const modelContainer = document.getElementById('modal_container');
+const cardDetails = document.getElementById('card_details_modal');
 let cart = [];
 let allPlants =[]
 
@@ -115,6 +117,41 @@ treeArray.forEach(tr=>{
 
 
 }
+const handleModal=(e)=>{
+    const id = e.target.parentNode.id;
+    // console.log(id)
+    
+    fetch(`https://openapi.programming-hero.com/api/plant/${id}`)
+    .then(res=>res.json())
+    .then(data=>{
+      showModalDescription(data.plants)
+    })
+    .catch(error=>{
+        console.log(error)
+    })
+
+}
+const showModalDescription=(plants)=>{
+    console.log(plants)
+    cardDetails.showModal()
+    modelContainer.innerHTML=`<div class=" max-h-[90vh] overflow-hidden">
+    
+    <h2 class="font-bold text-2xl">${plants.category}</h2>
+    <img class="mt-2 w-full max-h-[50vh] object-cover rounded-lg " src="${plants.image}" alt="">
+    <p><span class="font-bold">Category</span> ${plants.name}</p>
+    <p><span class="font-bold">Price:</span> ${plants.price}</p>
+    <p><span class="font-bold">Description:</span> ${plants.description}</p>
+    </div>
+    `
+
+
+}
+categoryContainer.addEventListener('click',(e)=>{
+    if(e.target.tagName=='H1'){
+        handleModal(e)
+
+    }
+})
 const buttonLeft = async()=>{
     try{
         const  res = await fetch('https://openapi.programming-hero.com/api/categories')
