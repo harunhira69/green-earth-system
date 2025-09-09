@@ -78,6 +78,7 @@ const showCart = (cart)=>{
 
         
     });
+    // total sum cart section
        const total = cart.reduce((sum,item)=>sum+item.price,0);
     cartContainer.innerHTML+=`<div>
                                   <span>Total:</span>
