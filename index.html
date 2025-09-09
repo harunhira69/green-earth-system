@@ -8,6 +8,15 @@
     <!-- Daisy ui + tailwind -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- google font -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+<style>
+*{
+    font-family: "Inter", sans-serif;
+}
+</style>
 
 </head>
 
@@ -70,6 +79,12 @@
             <div id="left-button" class="left flex flex-col md:col-span-1 md:h-screen md:sticky md:overflow-y-auto md:top-0 bg-gray-500 space-y-2 p-2 ">
                
             </div>
+         
+  <div id="loading" class="flex justify-center items-center ">
+    <span class="loading loading-spinner loading-lg text-green-600"></span>
+  </div>
+
+
            
             <div id="category-container" class=" col-span-1 md:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-6 md:order-none order-2">
                
@@ -84,18 +99,79 @@
             </div>
         
         </section>
-        <!-- <section class="md:flex items-center gap-8 md:w-6/12 mx-auto mt-10">
-            <div class="right rounded-lg">
-                <img class="w-[150px] md:max-w-[500px]" src="./assets/about.png" alt="">
-            </div>
-            <div>
-                <li>Restoration of natural habitats
+<div class=" w-11/12 mx-auto mt-5 ">
+    <div class="text-center text-4xl font-bold mb-2">
+              <h1>About this Campaign</h1>
+    </div>
+ <div class="flex md:flex-row flex-col items-center justify-center gap-5">
+       <div>
+  
+        <img class="max-w-sm rounded-lg shadow-2xl" src="./assets/about.png" alt="">
+    </div>
+    <div>
+        <li>Restoration of natural habitats
 
-                </li>
-                <li>Improvement of air quality</li>
-                <li>Support for local communities</li>
-            </div>
-        </section> -->
+</li>
+        <li>Improvement of air quality</li>
+        <li>Support for local communities</li>
+    </div>
+ </div>
+
+</div>
+<!-- our impact -->
+
+<div class="px-[135px]" >
+    <h1 class="text-2xl font-bold text-center mb-2 mt-5">Our impact</h1>
+  <div class="flex md:flex-row flex-col justify-between">
+      <div class="border-2 border-gray-200 bg-white w-full p-3 text-center max-w-sm rounded-lg shadow-2xl">
+        <h3 class="text-[#15803d] text-2xl">500K+</h3>
+        <p>Trees Planted</p>
+    </div>
+    <div class="border-2 border-gray-200 bg-white w-full p-3 text-center max-w-sm rounded-lg shadow-2xl">
+        <h3 class="text-[#15803d] text-2xl">120+</h3>
+        <p>Communities Involved</p>
+    </div>
+    <div class="border-2 border-gray-200 bg-white w-full p-3 text-center max-w-sm rounded-lg shadow-2xl">
+        <h3 class="text-[#15803d] text-2xl">30+</h3>
+        <p>Countries Reached</p>
+    </div>
+  </div>
+</div>
+
+<!-- plant a tree today -->
+
+<div class="items-center mt-20 bg-[#166534]">
+     <h3 class="text-2xl text-white font-bold text-center">Plant a Tree Today</h3>
+     <div class=" flex justify-center items-center">
+   
+        
+ 
+   <div class="w-full max-w-sm bg-[#166534] rounded-lg shadow-2xl p-6">
+     <div class="max-w-sm rounded-lg shadow-2xl space-y-2">
+        <input type="text" placeholder="Your Name" class="input w-full" />
+          <input type="email" placeholder="Your Email Address" class="input w-full" />
+          <div class="form-control  w-full">
+  
+   <select class="select select-bordered w-full">
+    <option disabled selected>Number of Trees</option>
+    <option>Fruit tree</option>
+    <option>Bamboo</option>
+    <option>Flower</option>
+
+  </select>
+</div>
+<button class="bg-[#facc15] rounded-full w-full">Donate Now</button>
+
+        
+    </div>
+   </div>
+
+ </div>
+</div>
+<footer class="bg-[#14532D] shadow-2xl ">
+    <p class="text-center text-white">© 2025 Green Earth. All Rights Reserved.</p>
+</footer>
+
       
     </main>
       <!-- <div class="bg-[#cff0dc] flex justify-center gap-20 mt-10 overflow-hidden">
@@ -126,7 +202,7 @@
   </div>
     <div class="modal-action">
       <form method="dialog">
-        <!-- if there is a button in form, it will close the modal -->
+  
         <button class="btn">Close</button>
       </form>
     </div>

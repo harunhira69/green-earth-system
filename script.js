@@ -7,6 +7,19 @@ const cardDetails = document.getElementById('card_details_modal');
 const loadingDiv = document.getElementById('loading')
 let cart = [];
 let allPlants =[]
+const isLoading =(spinner)=>{
+   if(spinner){
+     loadingDiv.style.display="block"
+    categoryContainer.innerHTML='';
+   }
+   else{
+    loadingDiv.style.display = "none"
+   }
+
+}
+isLoading(true)
+
+
 
 
 cartFather.addEventListener('click',(e)=>{
@@ -68,7 +81,7 @@ const showCart = (cart)=>{
        const total = cart.reduce((sum,item)=>sum+item.price,0);
     cartContainer.innerHTML+=`<div>
                                   <span>Total:</span>
-                                  <span class="text-green-400">${total.toFixed(2)}</span>
+                                  <span class="text-green-400">💵${total.toFixed(2)}</span>
                                   <div>
     `
 
@@ -86,13 +99,24 @@ const deleteCart =(id)=>{
 
 
 const url = ('https://openapi.programming-hero.com/api/plants')
+
+
 fetch(url)
 .then(res=>res.json())
 .then(data=>{
     allPlants=data.plants;
     displayTree(allPlants)
+    
 
+}
+
+)
+.finally(()=>{
+    isLoading(false)
 })
+
+
+
 
 const displayTree=(treeArray)=>{
     categoryContainer.innerHTML="";
@@ -101,15 +125,15 @@ treeArray.forEach(tr=>{
     console.log(tr)
     categoryContainer.innerHTML+=`         
                
-<div id="${tr.id}" class="border-2 border-gray-500 rounded-xl p-3  shadow-sm ">
+<div id="${tr.id}" class="bg-white  rounded-2xl p-3  shadow-sm ">
                <img class="rounded-lg  w-full h-40 object-cover" src="${tr.image}" alt="">
-                <h1 class="font-bold text-2xl">${tr.category}</h1>
+                <h1 class="font-bold text-2xl cursor-pointer">${tr.category}</h1>
                 <p class="text-xl text-justify">${tr.description}</p>
                 <div class="flex justify-between items-center"> 
                     <button class="rounded-full p-2 border-2 border-gray-200  mt-3 bg-white text-[#15803D]">${tr.name}</button>
                     <p class="price-money text-xl font-bold  text-[#15803D] ">$${tr.price}</p>
                 </div>
-                <button id="" class="cart-button bg-[#15803D] rounded-full p-3 text-center w-full mt-5">Add to Cart</button>
+                <button id="" class="cursor-pointer cart-button bg-[#15803D] text-white rounded-full p-3 text-center w-full mt-5">Add to Cart</button>
                 </div>
             
            
@@ -125,6 +149,7 @@ const handleModal=(e)=>{
     const id = e.target.parentNode.id;
     // console.log(id)
     
+    
     fetch(`https://openapi.programming-hero.com/api/plant/${id}`)
     .then(res=>res.json())
     .then(data=>{
@@ -133,6 +158,8 @@ const handleModal=(e)=>{
     .catch(error=>{
         console.log(error)
     })
+    
+  
 
 }
 const showModalDescription=(plants)=>{
@@ -157,6 +184,7 @@ categoryContainer.addEventListener('click',(e)=>{
     }
 })
 const buttonLeft = async()=>{
+    // isLoading(true)
     try{
         const  res = await fetch('https://openapi.programming-hero.com/api/categories')
         const data = await res.json()
@@ -166,6 +194,11 @@ const buttonLeft = async()=>{
        console.log('error fetching') 
 
     }
+    // finally{
+    //     isLoading(false)
+    // }
+
+  
     
 }
 const displayButton=(button)=>{
