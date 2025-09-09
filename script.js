@@ -171,7 +171,7 @@ const showModalDescription=(plants)=>{
     <h2 class="font-bold text-2xl">${plants.category}</h2>
     <img class="mt-2 w-full max-h-[50vh] object-cover rounded-lg " src="${plants.image}" alt="">
     <p><span class="font-bold">Category</span> ${plants.name}</p>
-    <p><span class="font-bold">Price:</span> ${plants.price}</p>
+    <p><span class="font-bold">Price:</span> 💲${plants.price}</p>
     <p><span class="font-bold">Description:</span> ${plants.description}</p>
     </div>
     `
